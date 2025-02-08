@@ -1,9 +1,9 @@
 "use client";
 import { AppConfig } from "@/configs/app";
 import { DEFAULT_LOADING_VALUE, MENUS } from "@/constants/home";
-import { Loading, Menu } from "@/features/pages/home/components";
+import { About, Loading, Menu } from "@/features/pages/home/components";
 import { isBrowser } from "@/libs/ssr";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const HomePage = () => {
   const [loadingValue, setLoadingValue] = useState(DEFAULT_LOADING_VALUE);
@@ -12,6 +12,15 @@ const HomePage = () => {
   const onChangeSelectedMenu = (newMenu: string) => {
     setSelectedMenu(newMenu);
   };
+
+  const renderSection = useCallback(() => {
+    switch (selectedMenu) {
+      case MENUS.ABOUT.value:
+        return <About />;
+      default:
+        return null;
+    }
+  }, [selectedMenu]);
 
   useEffect(() => {
     if (isBrowser) {
@@ -39,6 +48,7 @@ const HomePage = () => {
             selectedMenu={selectedMenu}
             onChangeSelectedMenu={onChangeSelectedMenu}
           />
+          <div className="mt-10">{renderSection()}</div>
         </div>
       )}
     </div>
