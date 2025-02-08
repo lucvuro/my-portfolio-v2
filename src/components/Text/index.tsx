@@ -19,10 +19,10 @@ const textCva = cva(["nes-text"], {
   },
 });
 
-export type TProgressProps = HTMLAttributes<HTMLParagraphElement> &
+export type TTextProps = HTMLAttributes<HTMLParagraphElement> &
   VariantProps<typeof textCva>;
 
-const Text: React.FC<TProgressProps> = ({ variant, className, ...props }) => {
+const Text: React.FC<TTextProps> = ({ variant, className, ...props }) => {
   return (
     <p className={twMerge(textCva({ variant, className }))} {...props}></p>
   );

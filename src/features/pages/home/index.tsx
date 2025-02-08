@@ -1,12 +1,17 @@
 "use client";
 import { AppConfig } from "@/configs/app";
-import { DEFAULT_LOADING_VALUE } from "@/constants/home";
-import { Loading } from "@/features/pages/home/components";
+import { DEFAULT_LOADING_VALUE, MENUS } from "@/constants/home";
+import { Loading, Menu } from "@/features/pages/home/components";
 import { isBrowser } from "@/libs/ssr";
 import { useEffect, useState } from "react";
 
 const HomePage = () => {
   const [loadingValue, setLoadingValue] = useState(DEFAULT_LOADING_VALUE);
+  const [selectedMenu, setSelectedMenu] = useState(MENUS.ABOUT.value);
+
+  const onChangeSelectedMenu = (newMenu: string) => {
+    setSelectedMenu(newMenu);
+  };
 
   useEffect(() => {
     if (isBrowser) {
@@ -29,7 +34,12 @@ const HomePage = () => {
       {loadingValue < AppConfig.MAX_LOADING_VALUE ? (
         <Loading value={loadingValue} />
       ) : (
-        <></>
+        <div className="p-4">
+          <Menu
+            selectedMenu={selectedMenu}
+            onChangeSelectedMenu={onChangeSelectedMenu}
+          />
+        </div>
       )}
     </div>
   );
