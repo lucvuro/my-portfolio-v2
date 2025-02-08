@@ -32,3 +32,48 @@ export const EXPERIENCES = {
     date: "Aug 2022 - Nov 2022",
   },
 };
+
+export const SKILLS = [
+  {
+    title: "Node.js",
+    important: true,
+  },
+  {
+    title: "Python",
+    important: true,
+  },
+  {
+    title: "React",
+    important: false,
+  },
+  {
+    title: "NextJS",
+    important: false,
+  },
+  {
+    title: "Typescript",
+    important: false,
+  },
+  {
+    title: "Django",
+    important: false,
+  },
+  {
+    title: "Postgres",
+    important: false,
+  },
+  {
+    title: "Docker",
+    important: false,
+  },
+  {
+    title: "AWS Cloud",
+    important: false,
+  },
+];
+
+export const HOBBIES = [
+  "Playing game.",
+  "Listening to music.",
+  "Research new technologies",
+];

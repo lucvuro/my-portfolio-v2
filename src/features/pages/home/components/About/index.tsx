@@ -1,11 +1,12 @@
 import { NesContainer, Text } from "@/components";
-import { EXPERIENCES } from "@/constants/home";
+import Badge from "@/components/Badge";
+import { EXPERIENCES, HOBBIES, SKILLS } from "@/constants/home";
 import ExperienceItem from "@/features/pages/home/components/About/ExperienceItem";
 
 const About = () => {
   return (
     <NesContainer withTitle title="About">
-      <Text className="text-xs sm:text-base">
+      <Text className="text-justify text-xs sm:text-base">
         Hi there! As a passionate software engineer, I strive to deliver the
         best experience for customers by building modern, scalable, and
         efficient solutions. With a deep love for cutting-edge technologies and
@@ -27,6 +28,29 @@ const About = () => {
             );
           })}
         </div>
+      </NesContainer>
+
+      <NesContainer className="mt-10" withTitle title="skills">
+        <div className="flex flex-row flex-wrap gap-5">
+          {SKILLS.map((skill) => {
+            return (
+              <Badge
+                key={skill.title}
+                variant={skill.important ? "error" : "primary"}
+              >
+                {skill.title}
+              </Badge>
+            );
+          })}
+        </div>
+      </NesContainer>
+
+      <NesContainer className="mt-10" withTitle title="hobbies">
+        <ul className="nes-list is-disc pl-4">
+          {HOBBIES.map((hobby) => {
+            return <li key={hobby}>{hobby}</li>;
+          })}
+        </ul>
       </NesContainer>
     </NesContainer>
   );

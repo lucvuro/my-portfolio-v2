@@ -18,12 +18,21 @@ const Menu: React.FC<TMenuProps> = ({ selectedMenu, onChangeSelectedMenu }) => {
           <div className="text-center">
             <Text className="text-base sm:text-4xl">Luc Vu</Text>
             <Text className="text-xs sm:text-base">Software Engineer</Text>
-            <div>
-              <i className="nes-icon heart"></i>
-              <i className="nes-icon heart"></i>
-              <i className="nes-icon heart is-half"></i>
-              <i className="nes-icon heart is-transparent"></i>
-              <i className="nes-icon heart is-transparent"></i>
+            <div className="flex flex-col">
+              <div>
+                <i className="nes-icon heart"></i>
+                <i className="nes-icon heart"></i>
+                <i className="nes-icon heart is-half"></i>
+                <i className="nes-icon heart is-transparent"></i>
+                <i className="nes-icon heart is-transparent"></i>
+              </div>
+              <div>
+                <i className="nes-icon coin"></i>
+                <i className="nes-icon"></i>
+                <i className="nes-icon"></i>
+                <i className="nes-icon"></i>
+                <i className="nes-icon"></i>
+              </div>
             </div>
           </div>
         </div>
