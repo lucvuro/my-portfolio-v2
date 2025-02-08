@@ -1,0 +1,54 @@
+.setup_aws: &setup_aws
+  - apt-get update && apt-get install -y awscli
+  - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+  - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+  - aws configure set region $AWS_REGION
+
+stages:
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .next/cache/
+
+variables:
+  S3_BUCKET_UAT: "checkmate-uat"
+  S3_BUCKET_PRODUCTION: "checkmate-production"
+  CLOUDFRONT_ID_UAT: "E29QL35GXSDUGI"
+  CLOUDFRONT_ID_PRODUCTION: "E3UW5FWKN0K2TK"
+
+deploy_uat:
+  stage: deploy
+  image: node:18-bookworm
+  before_script:
+    - *setup_aws
+  script:
+    - yarn install
+    - yarn build
+    - aws s3 sync ./out s3://$S3_BUCKET_UAT --delete --include "*"
+    - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_UAT --paths "/*" --no-cli-pager
+  only:
+    refs:
+      - uat
+      - merge_request
+  when: manual
+
+deploy_production:
+  stage: deploy
+  image: node:18-bookworm
+  before_script:
+    - *setup_aws
+  script:
+    - yarn install
+    - yarn build
+    - aws s3 sync ./out s3://$S3_BUCKET_PRODUCTION --delete --include "*"
+    - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PRODUCTION --paths "/*" --no-cli-pager
+  only:
+    refs:
+      - /^v(\d+\.)?(\d+\.)?(\*|\d+)$/ # semver
+    variables:
+      - $CI_COMMIT_REF_PROTECTED
+  when: manual
+
