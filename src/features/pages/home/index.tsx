@@ -3,6 +3,7 @@ import { AppConfig } from "@/configs/app";
 import { DEFAULT_LOADING_VALUE, MENUS } from "@/constants/home";
 import {
   About,
+  Contact,
   Loading,
   Menu,
   Projects,
@@ -24,6 +25,8 @@ const HomePage = () => {
         return <About />;
       case MENUS.PROJECTS.value:
         return <Projects />;
+      case MENUS.CONTACT.value:
+        return <Contact />;
       default:
         return null;
     }
