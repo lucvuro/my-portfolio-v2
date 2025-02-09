@@ -1,7 +1,12 @@
 "use client";
 import { AppConfig } from "@/configs/app";
 import { DEFAULT_LOADING_VALUE, MENUS } from "@/constants/home";
-import { About, Loading, Menu } from "@/features/pages/home/components";
+import {
+  About,
+  Loading,
+  Menu,
+  Projects,
+} from "@/features/pages/home/components";
 import { isBrowser } from "@/libs/ssr";
 import { useCallback, useEffect, useState } from "react";
 
@@ -17,6 +22,8 @@ const HomePage = () => {
     switch (selectedMenu) {
       case MENUS.ABOUT.value:
         return <About />;
+      case MENUS.PROJECTS.value:
+        return <Projects />;
       default:
         return null;
     }
