@@ -1,11 +1,30 @@
-import { Button, NesContainer } from "@/components";
+import { Button, Dialog, NesContainer, Text } from "@/components";
 import { RHFInput } from "@/components/RHF";
 import RHFTextarea from "@/components/RHF/RHFTextArea";
 import { useSendContactForm } from "@/features/pages/home/hooks/form";
+import { useSendContactMutation } from "@/features/pages/home/hooks/mutation";
 import Link from "next/link";
+import { useState } from "react";
 
 const Contact = () => {
-  const { method, onSubmit } = useSendContactForm();
+  const [openModal, setIsOpenModal] = useState(false);
+  const { mutate } = useSendContactMutation({
+    onSucess: () => onContactSuccess(),
+  });
+  const { method, onSubmit } = useSendContactForm({
+    onSubmit: (data) => {
+      mutate(data);
+    },
+  });
+  const onContactSuccess = () => {
+    method.reset();
+    setIsOpenModal(true);
+  };
+
+  const onCloseSuccessModal = () => {
+    setIsOpenModal(false);
+  };
+
   return (
     <>
       <NesContainer withTitle title="Social" isCentered>
@@ -55,6 +74,19 @@ const Contact = () => {
           </Button>
         </form>
       </NesContainer>
+      <Dialog isOpen={openModal}>
+        <Text variant="error"> Thank you for getting in touch with me. ^^</Text>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Button variant="primary" onClick={onCloseSuccessModal}>
+            Close
+          </Button>
+        </div>
+      </Dialog>
     </>
   );
 };

@@ -19,7 +19,6 @@ export const useSendContactForm = (
   });
 
   const onSubmit: SubmitHandler<TSendContactFormSchema> = (data) => {
-    console.log(data);
     options.onSubmit?.(data);
   };
 

@@ -7,3 +7,7 @@ export type TRHFProps = {
   name: string;
   title?: string;
 };
+
+export type TGeneralMutationHook = {
+  onSucess?: () => void;
+};

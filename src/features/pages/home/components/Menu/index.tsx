@@ -3,6 +3,7 @@ import { NesContainer, Radio, Text } from "@/components";
 import { MENUS } from "@/constants/home";
 import Image from "next/image";
 import type React from "react";
+import { useEffect } from "react";
 
 export type TMenuProps = {
   selectedMenu: string;
@@ -10,6 +11,30 @@ export type TMenuProps = {
 };
 
 const Menu: React.FC<TMenuProps> = ({ selectedMenu, onChangeSelectedMenu }) => {
+  useEffect(() => {
+    document.querySelectorAll(".menu-item").forEach((anchor, i) => {
+      const beep = document.getElementById("beep");
+      if (!beep) return;
+
+      if (i !== 0) {
+        const clonedBeep = beep.cloneNode(true) as HTMLAudioElement;
+        clonedBeep.id = `beep-${i}`;
+        anchor.parentElement?.appendChild(clonedBeep);
+      }
+
+      (anchor as HTMLElement).dataset.beeper = i.toString();
+
+      anchor.addEventListener("mouseenter", () => {
+        const beepId = `beep-${(anchor as HTMLElement).dataset.beeper}`;
+        const audio = document.getElementById(beepId) as HTMLAudioElement;
+        console.log(beepId);
+        audio?.play();
+      });
+    }, []);
+
+    const beepZero = document.getElementById("beep");
+    if (beepZero) beepZero.id = "beep-0";
+  }, []);
   return (
     <NesContainer withTitle title="Menu">
       <div className="flex items-center gap-4 sm:justify-evenly">
@@ -45,11 +70,16 @@ const Menu: React.FC<TMenuProps> = ({ selectedMenu, onChangeSelectedMenu }) => {
                 name="section"
                 checked={selectedMenu === menu.value}
                 onClick={() => onChangeSelectedMenu(menu.value)}
+                containerClassName="menu-item"
               />
             );
           })}
         </div>
       </div>
+      <audio controls preload="auto" hidden id="beep">
+        <source src="sound/arcade-fx-288597.mp3"></source>
+        Your browser is not invited for super fun audio time.
+      </audio>
     </NesContainer>
   );
 };

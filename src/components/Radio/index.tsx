@@ -17,16 +17,18 @@ const radioCva = cva(["nes-radio"], {
 export type TRadioProps = InputHTMLAttributes<HTMLInputElement> &
   VariantProps<typeof radioCva> & {
     title?: string;
+    containerClassName?: string;
   };
 
 const Radio: React.FC<TRadioProps> = ({
   isDark,
   className,
   title,
+  containerClassName,
   ...props
 }) => {
   return (
-    <div>
+    <div className={containerClassName}>
       <label>
         <input
           type="radio"
