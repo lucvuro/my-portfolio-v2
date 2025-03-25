@@ -7,12 +7,11 @@ const About = () => {
   return (
     <NesContainer withTitle title="About">
       <Text className="text-justify text-xs sm:text-base">
-        Hi there! As a passionate software engineer, I strive to deliver the
-        best experience for customers by building modern, scalable, and
-        efficient solutions. With a deep love for cutting-edge technologies and
-        a continuous drive for learning, I focus on crafting robust
-        infrastructure and innovative solutions that empower businesses to
-        thrive in the digital era.
+        {`Hi there! I'm a passionate software engineer who sees technology as pure
+        magic—it makes life easier and more exciting! That magic led me here,
+        and now my mission is to share it with the world. I want every
+        individual and business to harness its power because, honestly, what’s
+        cooler than bringing a bit of tech magic into everything?`}
       </Text>
 
       <NesContainer className="mt-10" withTitle title="experience">
