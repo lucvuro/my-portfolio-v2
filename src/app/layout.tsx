@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     : undefined,
   // (optional) avoid canonical in noindex mode
   alternates: DISABLE_SEO ? undefined : { canonical: "/" },
+  title: "lucvuro - Portfolio",
 };
 
 const secondaryFont = Archivo_Black({
