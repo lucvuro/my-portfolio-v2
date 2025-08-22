@@ -1,4 +1,5 @@
-import { Progress, Text } from "@/components";
+import { Progress } from "@/components/retroui/Progress";
+import { Text } from "@/components/retroui/Text";
 import { AppConfig } from "@/configs/app";
 import type React from "react";
 

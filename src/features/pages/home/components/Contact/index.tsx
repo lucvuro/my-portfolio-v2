@@ -1,8 +1,12 @@
-import { Button, Dialog, NesContainer, Text } from "@/components";
+import { Dialog } from "@/components";
+import { Button } from "@/components/retroui/Button";
+import { Text } from "@/components/retroui/Text";
+import RetroUIContainer from "@/components/RetroUIContainer";
 import { RHFInput } from "@/components/RHF";
 import RHFTextarea from "@/components/RHF/RHFTextArea";
 import { useSendContactForm } from "@/features/pages/home/hooks/form";
 import { useSendContactMutation } from "@/features/pages/home/hooks/mutation";
+import { Github, Linkedin, Instagram } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -26,27 +30,33 @@ const Contact = () => {
   };
 
   return (
-    <>
-      <NesContainer withTitle title="Social" isCentered>
-        <Link href="https://github.com/lucvuro" target="_blank">
-          <i className="nes-icon github is-medium"></i>
-        </Link>
-        <Link
-          href="https://www.linkedin.com/in/lucvuro/"
-          target="_blank"
-          className="ml-5"
-        >
-          <i className="nes-icon linkedin is-medium"></i>
-        </Link>
-        <Link
-          href="https://www.instagram.com/lucvuro/"
-          target="_blank"
-          className="ml-5"
-        >
-          <i className="nes-icon instagram is-medium"></i>
-        </Link>
-      </NesContainer>
-      <NesContainer withTitle title="Contact" className="mt-10">
+    <div className="flex flex-col">
+      <RetroUIContainer withTitle title="Social">
+        <div className="flex gap-4">
+          <Link
+            href="https://github.com/lucvuro"
+            target="_blank"
+            className="rounded-lg border border-gray-600 p-2 transition-colors hover:border-gray-400"
+          >
+            <Github size={24} />
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/lucvuro/"
+            target="_blank"
+            className="rounded-lg border border-gray-600 p-2 transition-colors hover:border-gray-400"
+          >
+            <Linkedin size={24} />
+          </Link>
+          <Link
+            href="https://www.instagram.com/lucvuro/"
+            target="_blank"
+            className="rounded-lg border border-gray-600 p-2 transition-colors hover:border-gray-400"
+          >
+            <Instagram size={24} />
+          </Link>
+        </div>
+      </RetroUIContainer>
+      <RetroUIContainer withTitle title="Contact" className="mt-10">
         <form
           onSubmit={method.handleSubmit(onSubmit)}
           className="flex flex-col gap-5"
@@ -69,25 +79,23 @@ const Contact = () => {
             title="Message"
             placeholder="Input your message..."
           />
-          <Button className="w-fit" type="submit" variant="primary">
+          <Button className="w-fit" type="submit">
             Send
           </Button>
         </form>
-      </NesContainer>
+      </RetroUIContainer>
       <Dialog isOpen={openModal}>
-        <Text variant="error"> Thank you for getting in touch with me. ^^</Text>
+        <Text> Thank you for getting in touch with me. ^^</Text>
         <div
           style={{
             display: "flex",
             justifyContent: "center",
           }}
         >
-          <Button variant="primary" onClick={onCloseSuccessModal}>
-            Close
-          </Button>
+          <Button onClick={onCloseSuccessModal}>Close</Button>
         </div>
       </Dialog>
-    </>
+    </div>
   );
 };
 

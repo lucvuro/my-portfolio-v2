@@ -1,25 +1,32 @@
-import { Text } from "@/components";
+import { Text } from "@/components/retroui/Text";
 import type React from "react";
 
 export type TExperienceItemProps = {
   title: string;
   subtitle: string;
   rightTitle: string;
+  description?: React.ReactNode;
 };
 
 const ExperienceItem: React.FC<TExperienceItemProps> = ({
   title,
   subtitle,
   rightTitle,
+  description,
 }) => {
   return (
     <div className="flex flex-col justify-between sm:flex-row sm:items-center">
       <div>
-        <Text className="text-sm sm:text-lg">{title}</Text>
-        <Text className="text-xs text-gray-400 sm:text-sm">{subtitle}</Text>
+        <Text as="h5" className="font-head">
+          {title}
+        </Text>
+        <Text className="text-base text-gray-600 sm:text-lg">{subtitle}</Text>
+        <div className="mt-2">{description}</div>
       </div>
       <div>
-        <Text className="text-xs sm:text-sm">{rightTitle}</Text>
+        <Text as="p" className="text-base sm:text-lg">
+          {rightTitle}
+        </Text>
       </div>
     </div>
   );

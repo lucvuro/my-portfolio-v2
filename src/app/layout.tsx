@@ -1,18 +1,37 @@
 import "@/styles/globals.css";
+import type { Metadata } from "next";
 
-import { Press_Start_2P } from "next/font/google";
+import { Archivo_Black, Space_Grotesk } from "next/font/google";
 
-const primaryFont = Press_Start_2P({
+const DISABLE_SEO = true;
+
+export const metadata: Metadata = {
+  robots: DISABLE_SEO
+    ? {
+        index: false,
+        follow: false,
+        nocache: true,
+        noarchive: true,
+        nosnippet: true,
+      }
+    : undefined,
+  // (optional) avoid canonical in noindex mode
+  alternates: DISABLE_SEO ? undefined : { canonical: "/" },
+};
+
+const secondaryFont = Archivo_Black({
   subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["400"],
+  weight: "400",
+  variable: "--font-head",
+  display: "swap",
 });
 
-export const metadata = {
-  title: "lucvuro",
-  description: "lucvuro's Portfolio",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
-};
+const primaryFont = Space_Grotesk({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -21,10 +40,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-      </head>
-      <body className={`font-sans ${primaryFont.variable}`}>{children}</body>
+      <body
+        className={`font-sans ${primaryFont.variable} ${secondaryFont.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

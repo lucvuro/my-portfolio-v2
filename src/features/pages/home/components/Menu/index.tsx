@@ -1,7 +1,9 @@
 import { avatarPixel } from "@/assets/images";
-import { NesContainer, Radio, Text } from "@/components";
+import { Text } from "@/components";
+import { Avatar } from "@/components/retroui/Avatar";
+import { Button } from "@/components/retroui/Button";
+import RetroUIContainer from "@/components/RetroUIContainer";
 import { MENUS } from "@/constants/home";
-import Image from "next/image";
 import type React from "react";
 import { useEffect } from "react";
 
@@ -36,42 +38,31 @@ const Menu: React.FC<TMenuProps> = ({ selectedMenu, onChangeSelectedMenu }) => {
     if (beepZero) beepZero.id = "beep-0";
   }, []);
   return (
-    <NesContainer withTitle title="Menu">
+    <RetroUIContainer className="mt-10 w-full">
       <div className="flex items-center gap-4 sm:justify-evenly">
         <div className="flex flex-1 flex-col items-center gap-5 sm:flex-row">
-          <Image width={150} height={150} alt="avatar" src={avatarPixel} />
+          <Avatar className="h-[150px] w-[150px]">
+            <Avatar.Image alt="avatar" src={avatarPixel.src} />
+          </Avatar>
           <div className="text-center">
             <Text className="text-base sm:text-4xl">Luc Vu</Text>
-            <Text className="text-xs sm:text-base">Software Engineer</Text>
-            <div className="flex flex-col">
-              <div>
-                <i className="nes-icon heart"></i>
-                <i className="nes-icon heart"></i>
-                <i className="nes-icon heart is-half"></i>
-                <i className="nes-icon heart is-transparent"></i>
-                <i className="nes-icon heart is-transparent"></i>
-              </div>
-              <div>
-                <i className="nes-icon coin"></i>
-                <i className="nes-icon"></i>
-                <i className="nes-icon"></i>
-                <i className="nes-icon"></i>
-                <i className="nes-icon"></i>
-              </div>
-            </div>
+            <Text className="text-xs sm:text-2xl">Software Engineer</Text>
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-4 text-sm sm:items-center sm:text-base lg:flex-row">
           {Object.values(MENUS).map((menu) => {
             return (
-              <Radio
+              <Button
                 key={menu.value}
-                title={menu.label}
-                name="section"
-                checked={selectedMenu === menu.value}
                 onClick={() => onChangeSelectedMenu(menu.value)}
-                containerClassName="menu-item"
-              />
+                className={`${
+                  selectedMenu === menu.value
+                    ? "bg-gray-700 text-white"
+                    : undefined
+                }`}
+              >
+                {menu.label}
+              </Button>
             );
           })}
         </div>
@@ -80,7 +71,7 @@ const Menu: React.FC<TMenuProps> = ({ selectedMenu, onChangeSelectedMenu }) => {
         <source src="sound/arcade-fx-288597.mp3"></source>
         Your browser is not invited for super fun audio time.
       </audio>
-    </NesContainer>
+    </RetroUIContainer>
   );
 };
 

@@ -1,3 +1,108 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ==== Theme tokens (HSL triplets) ==== */
+@layer base {
+  :root {
+    /* core */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --primary: 49 100% 60%; /* #ffdb33 */
+    --primary-hover: 48 100% 50%; /* #ffcc00 */
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 68%; /* #aeaeae */
+    --muted-foreground: 0 0% 35%; /* #5a5a5a */
+
+    --accent: 49 92% 75%; /* #fae583 */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 355 78% 56%; /* #e63946 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 0%;
+
+    /* shadcn extras */
+    --popover: var(--card);
+    --popover-foreground: var(--card-foreground);
+    --input: 0 0% 80%; /* borders for inputs */
+    --ring: 49 100% 60%; /* focus ring color */
+
+    /* chart palette */
+    --chart-1: 220 90% 56%;
+    --chart-2: 158 64% 52%;
+    --chart-3: 31 97% 62%;
+    --chart-4: 280 83% 65%;
+    --chart-5: 0 84% 60%;
+
+    /* shadows (used via Tailwind shadow keys below) */
+    --shadow-xs: 1px 1px 0 0 hsl(var(--border));
+    --shadow-sm: 2px 2px 0 0 hsl(var(--border));
+    --shadow: 3px 3px 0 0 hsl(var(--border));
+    --shadow-md: 4px 4px 0 0 hsl(var(--border));
+    --shadow-lg: 6px 6px 0 0 hsl(var(--border));
+    --shadow-xl: 10px 10px 0 1px hsl(var(--border));
+    --shadow-2xl: 16px 16px 0 1px hsl(var(--border));
+  }
+
+  .dark {
+    --background: 0 0% 10%; /* #1a1a1a */
+    --foreground: 0 0% 96%; /* #f5f5f5 */
+
+    --card: 0 0% 14%; /* #242424 */
+    --card-foreground: 0 0% 96%;
+
+    --primary: 49 100% 60%;
+    --primary-hover: 48 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 23%; /* #3a3a3a */
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 240 5% 26%; /* #3f3f46 */
+    --muted-foreground: 0 0% 63%; /* #a0a0a0 */
+
+    --accent: 49 92% 75%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 355 78% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 23%; /* #3a3a3a */
+
+    --popover: var(--card);
+    --popover-foreground: var(--card-foreground);
+    --input: 0 0% 30%;
+    --ring: 49 100% 60%;
+
+    --chart-1: 220 90% 60%;
+    --chart-2: 158 64% 56%;
+    --chart-3: 31 97% 66%;
+    --chart-4: 280 83% 69%;
+    --chart-5: 0 84% 64%;
+
+    --shadow-xs: 1px 1px 0 0 hsl(var(--border));
+    --shadow-sm: 2px 2px 0 0 hsl(var(--border));
+    --shadow: 3px 3px 0 0 hsl(var(--border));
+    --shadow-md: 4px 4px 0 0 hsl(var(--border));
+    --shadow-lg: 6px 6px 0 0 hsl(var(--border));
+    --shadow-xl: 10px 10px 0 1px hsl(var(--border));
+    --shadow-2xl: 16px 16px 0 1px hsl(var(--border));
+  }
+
+  /* Apply base colors */
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -3,3 +3,7 @@ export { default as stickTogetherImg } from "./sticktogether.jpg";
 export { default as ecommerProjectImg } from "./ecommerce.png";
 export { default as porfolioImg } from "./portfolio.png";
 export { default as ccsImg } from "./ccsweb.png";
+export { default as ecommerceGenkinImg } from "./ecommerce-genkin.png";
+export { default as crmGenkinImg } from "./crm-genkin.png";
+export { default as maidoImg } from "./maido.png";
+export { default as haunhanImg } from "./haunhanwood.png";
