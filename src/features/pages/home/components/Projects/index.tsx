@@ -20,10 +20,16 @@ const Projects = () => {
               <ProjectItem
                 key={project.title}
                 title={project.title}
+                org={project.org}
+                role={project.role}
+                period={project.period}
                 description={project.description}
                 coverImg={project.coverImg}
+                coverNote={project.coverNote}
                 techStacks={project.techStacks}
                 websiteLink={project.liveLink}
+                appStoreLink={project.appStoreLink}
+                googlePlayLink={project.googlePlayLink}
               />
             );
           })}
@@ -40,10 +46,16 @@ const Projects = () => {
               <ProjectItem
                 key={project.title}
                 title={project.title}
+                org={project.org}
+                role={project.role}
+                period={project.period}
                 description={project.description}
                 coverImg={project.coverImg}
+                coverNote={project.coverNote}
                 techStacks={project.techStacks}
                 websiteLink={project.liveLink}
+                appStoreLink={project.appStoreLink}
+                googlePlayLink={project.googlePlayLink}
               />
             );
           })}

@@ -21,10 +21,10 @@ const About = () => {
           {Object.values(EXPERIENCES).map((exp) => {
             return (
               <ExperienceItem
-                key={`${exp.title}-${exp.date}`}
+                key={exp.title}
                 title={exp.title}
-                subtitle={exp.position}
-                rightTitle={exp.date}
+                period={"period" in exp ? exp.period : undefined}
+                roles={exp.roles}
               />
             );
           })}
