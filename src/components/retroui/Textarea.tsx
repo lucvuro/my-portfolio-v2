@@ -11,10 +11,10 @@ export function Textarea({
       placeholder={placeholder}
       rows={4}
       className={cn(
-        `focus:outline-hidden focus:shadow-xs w-full border-2 border-border px-4 py-2 shadow-md transition placeholder:text-muted-foreground
+        `focus:outline-hidden w-full border-2 border-border bg-background px-4 py-2 text-foreground shadow-md transition placeholder:text-muted-foreground focus:shadow-xs
         ${
           props["aria-invalid"]
-            ? "border-red-500 text-red-500 shadow-md shadow-red-600"
+            ? "border-destructive bg-muted text-destructive shadow-xs"
             : ""
         }`,
         className,

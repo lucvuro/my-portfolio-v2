@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { THEMES, THEME_INIT_SCRIPT } from "@/constants/theme";
 import type { Metadata } from "next";
 
 import { Archivo_Black, Space_Grotesk } from "next/font/google";
@@ -40,7 +41,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={THEMES.DARK} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body
         className={`font-sans ${primaryFont.variable} ${secondaryFont.variable}`}
       >

@@ -7,12 +7,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        // Raised surface block; hover presses it down and inverts.
         default:
-          "shadow-md hover:shadow-none bg-primary text-black border-2 border-black transition hover:translate-y-1 hover:bg-primary-hover",
+          "shadow-md hover:shadow-none bg-background text-foreground border-2 border-border transition hover:translate-y-1 hover:bg-foreground hover:text-background",
+        // Already-pressed, inverted block - used for selected/active states.
         secondary:
-          "shadow-md hover:shadow-none bg-secondary shadow-primary text-secondary-foreground border-2 border-black transition hover:translate-y-1",
+          "shadow-none translate-y-1 bg-primary text-primary-foreground border-2 border-border transition hover:bg-primary-hover",
         outline:
-          "shadow-md hover:shadow-none bg-transparent border-2 transition hover:translate-y-1",
+          "shadow-md hover:shadow-none bg-transparent text-foreground border-2 border-border transition hover:translate-y-1 hover:bg-muted",
         link: "bg-transparent hover:underline",
       },
       size: {

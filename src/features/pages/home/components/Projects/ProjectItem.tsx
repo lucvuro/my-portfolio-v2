@@ -52,7 +52,7 @@ const ProjectItem: React.FC<TProjectItemProps> = ({
               {title}
             </Text>
             {meta.length > 0 && (
-              <p className="text-xs font-medium uppercase tracking-wide text-gray-400 sm:text-sm">
+              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground sm:text-sm">
                 {meta.join(" · ")}
               </p>
             )}
@@ -65,7 +65,7 @@ const ProjectItem: React.FC<TProjectItemProps> = ({
             {techStacks.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full bg-gray-700 px-3 py-1 text-xs font-medium text-gray-200 sm:text-sm"
+                className="border-2 border-border bg-muted px-3 py-1 text-xs font-medium text-foreground sm:text-sm"
               >
                 {tech}
               </span>
@@ -104,7 +104,7 @@ const ProjectItem: React.FC<TProjectItemProps> = ({
         {(coverImg ?? coverNote) && (
           <div className="flex-1 lg:max-w-lg">
             {coverImg ? (
-              <div className="overflow-hidden rounded-lg border border-gray-700">
+              <div className="overflow-hidden border-2 border-border shadow-sm">
                 <Image
                   src={coverImg}
                   alt={title}
@@ -112,8 +112,8 @@ const ProjectItem: React.FC<TProjectItemProps> = ({
                 />
               </div>
             ) : (
-              <div className="flex h-full min-h-32 items-center justify-center rounded-lg border border-dashed border-gray-700 p-6">
-                <p className="text-center text-xs italic text-gray-400 sm:text-sm">
+              <div className="flex h-full min-h-32 items-center justify-center border-2 border-dashed border-muted-foreground p-6">
+                <p className="text-center text-xs italic text-muted-foreground sm:text-sm">
                   {coverNote}
                 </p>
               </div>

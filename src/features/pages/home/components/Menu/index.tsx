@@ -3,6 +3,7 @@ import { Text } from "@/components";
 import { Avatar } from "@/components/retroui/Avatar";
 import { Button } from "@/components/retroui/Button";
 import RetroUIContainer from "@/components/RetroUIContainer";
+import ThemeToggle from "@/components/ThemeToggle";
 import { MENUS } from "@/constants/home";
 import type React from "react";
 import { useEffect } from "react";
@@ -55,16 +56,13 @@ const Menu: React.FC<TMenuProps> = ({ selectedMenu, onChangeSelectedMenu }) => {
               <Button
                 key={menu.value}
                 onClick={() => onChangeSelectedMenu(menu.value)}
-                className={`${
-                  selectedMenu === menu.value
-                    ? "bg-gray-700 text-white"
-                    : undefined
-                }`}
+                variant={selectedMenu === menu.value ? "secondary" : "default"}
               >
                 {menu.label}
               </Button>
             );
           })}
+          <ThemeToggle />
         </div>
       </div>
       <audio controls preload="auto" hidden id="beep">

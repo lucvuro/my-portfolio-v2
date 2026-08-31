@@ -32,7 +32,7 @@ const ExperienceItem: React.FC<TExperienceItemProps> = ({
           <Text as="h5" className="font-head">
             {title}
           </Text>
-          <Text className="text-base text-gray-600 sm:text-lg">
+          <Text className="text-base text-muted-foreground sm:text-lg">
             {[singleRole.position, singleRole.employmentType]
               .filter(Boolean)
               .join(" · ")}
@@ -61,16 +61,16 @@ const ExperienceItem: React.FC<TExperienceItemProps> = ({
           </Text>
         )}
       </div>
-      <ul className="mt-3 space-y-3 border-l-2 border-gray-300 pl-4">
+      <ul className="mt-3 space-y-3 border-l-2 border-muted-foreground pl-4">
         {roles.map((role) => (
           <li
             key={`${role.position}-${role.date}`}
             className="flex flex-col justify-between sm:flex-row sm:items-center"
           >
-            <Text className="text-base text-gray-600 sm:text-lg">
+            <Text className="text-base text-muted-foreground sm:text-lg">
               {[role.position, role.employmentType].filter(Boolean).join(" · ")}
             </Text>
-            <Text as="p" className="text-sm text-gray-600 sm:text-base">
+            <Text as="p" className="text-sm text-muted-foreground sm:text-base">
               {role.date}
             </Text>
           </li>

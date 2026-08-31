@@ -4,6 +4,7 @@ import { DEFAULT_LOADING_VALUE, MENUS } from "@/constants/home";
 import {
   About,
   Contact,
+  Footer,
   Loading,
   Menu,
   Projects,
@@ -59,6 +60,7 @@ const HomePage = () => {
             onChangeSelectedMenu={onChangeSelectedMenu}
           />
           <div className="mt-10">{renderSection()}</div>
+          <Footer />
         </div>
       )}
     </div>

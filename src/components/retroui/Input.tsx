@@ -14,9 +14,9 @@ export const Input: React.FC<InputProps> = ({
     <input
       type={type}
       placeholder={placeholder}
-      className={`focus:outline-hidden focus:shadow-xs w-full border-2 px-4 py-2 shadow-md transition ${
+      className={`focus:outline-hidden w-full border-2 border-border bg-background px-4 py-2 text-foreground shadow-md transition placeholder:text-muted-foreground focus:shadow-xs ${
         props["aria-invalid"]
-          ? "shadow-xs border-red-500 text-red-500 shadow-red-600"
+          ? "border-destructive bg-muted text-destructive shadow-xs"
           : ""
       } ${className}`}
       {...props}

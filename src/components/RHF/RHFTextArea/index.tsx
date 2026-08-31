@@ -1,3 +1,4 @@
+import FieldError from "@/components/RHF/FieldError";
 import { Textarea } from "@/components/retroui/Textarea";
 import type { TTextareaProps } from "@/components/Textarea";
 import type { TRHFProps } from "@/types/common";
@@ -14,7 +15,7 @@ const RHFTextarea: React.FC<TRHFTextareaProps> = ({
   ...rest
 }) => {
   return (
-    <div className="nes-field">
+    <div className="space-y-1">
       {title && <label htmlFor={name}>{title}</label>}
       <Controller
         name={name}
@@ -28,9 +29,7 @@ const RHFTextarea: React.FC<TRHFTextareaProps> = ({
                 value={value}
                 {...rest}
               />
-              {error?.message && (
-                <p className="mt-1 text-sm text-red-400">{error.message}</p>
-              )}
+              {error?.message && <FieldError message={error.message} />}
             </>
           );
         }}

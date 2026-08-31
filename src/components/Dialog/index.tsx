@@ -3,17 +3,23 @@ import type React from "react";
 import { useEffect, useRef, type DialogHTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
-const dialogCva = cva(["nes-dialog"], {
-  variants: {
-    variant: {
-      default: [],
-      rounded: ["is-rounded"],
+const dialogCva = cva(
+  [
+    "nes-dialog",
+    "border-2 border-border bg-card p-6 text-card-foreground shadow-md backdrop:bg-black/60",
+  ],
+  {
+    variants: {
+      variant: {
+        default: [],
+        rounded: ["is-rounded"],
+      },
+    },
+    defaultVariants: {
+      variant: "default",
     },
   },
-  defaultVariants: {
-    variant: "default",
-  },
-});
+);
 
 export type TDialogProps = DialogHTMLAttributes<HTMLDialogElement> &
   VariantProps<typeof dialogCva> & {

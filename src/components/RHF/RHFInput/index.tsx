@@ -1,4 +1,5 @@
 import type { TInputProps } from "@/components/Input";
+import FieldError from "@/components/RHF/FieldError";
 import { Input } from "@/components/retroui/Input";
 import type { TRHFProps } from "@/types/common";
 import type React from "react";
@@ -29,9 +30,7 @@ const RHFInput: React.FC<TRHFInputProps> = ({
                 aria-invalid={!!error?.message}
                 {...rest}
               />
-              {error?.message && (
-                <p className="mt-1 text-sm text-red-400">{error.message}</p>
-              )}
+              {error?.message && <FieldError message={error.message} />}
             </>
           );
         }}

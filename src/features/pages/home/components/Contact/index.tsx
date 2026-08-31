@@ -36,21 +36,21 @@ const Contact = () => {
           <Link
             href="https://github.com/lucvuro"
             target="_blank"
-            className="rounded-lg border border-gray-600 p-2 transition-colors hover:border-gray-400"
+            className="border-2 border-border p-2 shadow-sm transition-colors hover:bg-foreground hover:text-background"
           >
             <Github size={24} />
           </Link>
           <Link
             href="https://www.linkedin.com/in/lucvuro/"
             target="_blank"
-            className="rounded-lg border border-gray-600 p-2 transition-colors hover:border-gray-400"
+            className="border-2 border-border p-2 shadow-sm transition-colors hover:bg-foreground hover:text-background"
           >
             <Linkedin size={24} />
           </Link>
           <Link
             href="https://www.instagram.com/lucvuro/"
             target="_blank"
-            className="rounded-lg border border-gray-600 p-2 transition-colors hover:border-gray-400"
+            className="border-2 border-border p-2 shadow-sm transition-colors hover:bg-foreground hover:text-background"
           >
             <Instagram size={24} />
           </Link>
