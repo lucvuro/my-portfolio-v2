@@ -1,5 +1,6 @@
 import {
   ccsImg,
+  clowFortuneImg,
   ecommerceGenkinImg,
   genkinMobileImg,
   ecommerProjectImg,
@@ -287,6 +288,27 @@ export const PROFESSIONAL_PROJECTS: TProjectEntry[] = [
 ];
 
 export const PROJECTS: TProjectEntry[] = [
+  {
+    title: "Clow Fortune",
+    description: (
+      <p>
+        A pixel-art divination table for the Clow Cards (Cardcaptor Sakura):
+        nine spreads, all 52 cards with their readings, an animated
+        shuffle-and-deal ritual, and a generative WebAudio soundtrack — in
+        English and Vietnamese.
+      </p>
+    ),
+    coverImg: clowFortuneImg,
+    demoLink: "https://clowfortune.lucvuro.dev",
+    techStacks: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Framer Motion",
+      "Web Audio",
+    ],
+  },
   {
     title: "Stick Together",
     description: (

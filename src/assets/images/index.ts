@@ -7,3 +7,4 @@ export { default as ecommerceGenkinImg } from "./ecommerce-genkin.png";
 export { default as genkinMobileImg } from "./genkin-mobile.png";
 export { default as maidoImg } from "./maido.png";
 export { default as haunhanImg } from "./haunhanwood.png";
+export { default as clowFortuneImg } from "./clow-fortune.png";
