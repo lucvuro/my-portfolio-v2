@@ -42,6 +42,9 @@ const ProjectItem: React.FC<TProjectItemProps> = ({
   techStacks,
 }) => {
   const meta = [org, role, period].filter(Boolean);
+  const hasLinks = Boolean(
+    githubLink ?? demoLink ?? websiteLink ?? appStoreLink ?? googlePlayLink,
+  );
 
   return (
     <RetroUIContainer className="w-full">
@@ -72,33 +75,35 @@ const ProjectItem: React.FC<TProjectItemProps> = ({
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-3 pt-2">
-            {githubLink && (
-              <Link href={githubLink} target="_blank">
-                <Button className="text-sm sm:text-base">Github</Button>
-              </Link>
-            )}
-            {demoLink && (
-              <Link href={demoLink} target="_blank">
-                <Button className="text-sm sm:text-base">Live Demo</Button>
-              </Link>
-            )}
-            {websiteLink && (
-              <Link href={websiteLink} target="_blank">
-                <Button className="text-sm sm:text-base">Website</Button>
-              </Link>
-            )}
-            {appStoreLink && (
-              <Link href={appStoreLink} target="_blank">
-                <Button className="text-sm sm:text-base">App Store</Button>
-              </Link>
-            )}
-            {googlePlayLink && (
-              <Link href={googlePlayLink} target="_blank">
-                <Button className="text-sm sm:text-base">Google Play</Button>
-              </Link>
-            )}
-          </div>
+          {hasLinks && (
+            <div className="flex flex-wrap gap-3 pt-2">
+              {githubLink && (
+                <Link href={githubLink} target="_blank">
+                  <Button className="text-sm sm:text-base">Github</Button>
+                </Link>
+              )}
+              {demoLink && (
+                <Link href={demoLink} target="_blank">
+                  <Button className="text-sm sm:text-base">Live Demo</Button>
+                </Link>
+              )}
+              {websiteLink && (
+                <Link href={websiteLink} target="_blank">
+                  <Button className="text-sm sm:text-base">Website</Button>
+                </Link>
+              )}
+              {appStoreLink && (
+                <Link href={appStoreLink} target="_blank">
+                  <Button className="text-sm sm:text-base">App Store</Button>
+                </Link>
+              )}
+              {googlePlayLink && (
+                <Link href={googlePlayLink} target="_blank">
+                  <Button className="text-sm sm:text-base">Google Play</Button>
+                </Link>
+              )}
+            </div>
+          )}
         </div>
 
         {(coverImg ?? coverNote) && (

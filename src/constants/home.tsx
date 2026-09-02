@@ -217,7 +217,6 @@ export const PROFESSIONAL_PROJECTS: TProjectEntry[] = [
       </div>
     ),
     coverImg: ecommerceGenkinImg,
-    liveLink: "https://ecommerce.genkin.asia",
     techStacks: ["Next.js", "Django", "AWS", "Docker", "Redis"],
   },
   {
@@ -248,9 +247,6 @@ export const PROFESSIONAL_PROJECTS: TProjectEntry[] = [
       </div>
     ),
     coverImg: genkinMobileImg,
-    appStoreLink: "https://apps.apple.com/vn/app/genkin/id6745806942",
-    googlePlayLink:
-      "https://play.google.com/store/apps/details?id=com.enso.buygenkin",
     techStacks: ["React Native", "iOS", "Android"],
   },
   {
@@ -282,7 +278,6 @@ export const PROFESSIONAL_PROJECTS: TProjectEntry[] = [
     ),
     coverNote:
       "Internal tool - screenshots not shared. Happy to walk through it in an interview.",
-    liveLink: undefined,
     techStacks: ["Next.js", "Django", "AWS", "Docker", "Redis"],
   },
 ];

@@ -27,9 +27,6 @@ const Projects = () => {
                 coverImg={project.coverImg}
                 coverNote={project.coverNote}
                 techStacks={project.techStacks}
-                websiteLink={project.liveLink}
-                appStoreLink={project.appStoreLink}
-                googlePlayLink={project.googlePlayLink}
               />
             );
           })}
